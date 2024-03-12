@@ -127,6 +127,17 @@ namespace Tamagochi
             Console.WriteLine();
 
         }
+        public void Cure()
+        {
+            if (Health <= 0)
+            {
+                Health = 5;
+            }
+            else 
+            {
+                Health--;
+            }
+        }
 
     }
 }
