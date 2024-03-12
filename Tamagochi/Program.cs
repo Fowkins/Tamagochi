@@ -46,8 +46,22 @@ namespace Tamagochi
 
                 if(monster.Health <= 0)
                 {
-                    Console.WriteLine("Your pet is sick! Game Over.");
-                    gameOver = true;
+                    Console.WriteLine("Your pet is sick!.");
+                    Console.Write("Do you want to cure him?(Y/N): ");
+                    Console.Write("\n");
+                    string ch = Console.ReadLine();
+                    switch (ch)
+                    {
+                        case "Y" or "y":
+                            monster.Cure();
+                            break;
+                        case "N" or "n":
+                            gameOver = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
                 }
             }
         }
