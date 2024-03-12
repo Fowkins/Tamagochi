@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tamagochi
 {
+    /// <summary>
+    /// Класс Monster, хранящиий информацию о имени питомца, о состоянии его здоровья,
+    /// о состоянии его уровня голода и об его уровня усталости
+    /// </summary>
     class Monster
     {
         private string name;
@@ -13,6 +17,9 @@ namespace Tamagochi
         private int hunger;
         private int fatigue;
 
+        /// <summary>
+        /// Возвращает и задает имя питомца
+        /// </summary>
         public string Name
         {
             get
@@ -24,6 +31,10 @@ namespace Tamagochi
                 name = value;
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает уровень здоровья питомца
+        /// </summary>
         public int Health
         {
             get
@@ -43,6 +54,9 @@ namespace Tamagochi
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает уровень голода питомца
+        /// </summary>
         public int Hunger
         {
             get
@@ -62,6 +76,9 @@ namespace Tamagochi
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает уровень усталости питомца
+        /// </summary>
         public int Fatigue
         {
             get
@@ -80,6 +97,11 @@ namespace Tamagochi
                 }
             }
         }
+
+        /// <summary>
+        /// Конструктор класса Monster
+        /// </summary>
+        /// <param name="name">Имя питомца</param>
         public Monster(string name)
         {
             Name = name;
@@ -88,6 +110,9 @@ namespace Tamagochi
             Fatigue = 0;
         }
 
+        /// <summary>
+        /// Метод, рализующий кормление питомца
+        /// </summary>
         public void Feed()
         {
             if (Hunger > 0)
@@ -100,6 +125,9 @@ namespace Tamagochi
             }
         }
 
+        /// <summary>
+        /// Метод, реализующий игру с питомцем
+        /// </summary>
         public void Play()
         {
             Fatigue++;
@@ -111,6 +139,9 @@ namespace Tamagochi
 
         }
 
+        /// <summary>
+        /// Метод, реализующий "укачивание"(сон) питомца
+        /// </summary>
         public void Sleep()
         {
             Fatigue = 0;
@@ -118,6 +149,9 @@ namespace Tamagochi
             Hunger++;
         }
 
+        /// <summary>
+        /// Метод, реализующий вывод статуса питомца
+        /// </summary>
         public void Status()
         {
             Console.WriteLine($"Name: {Name}");
@@ -127,6 +161,10 @@ namespace Tamagochi
             Console.WriteLine();
 
         }
+
+        /// <summary>
+        /// Метод, позволяющий вылечить питомца при его заболевании
+        /// </summary>
         public void Cure()
         {
             if (Health <= 0)

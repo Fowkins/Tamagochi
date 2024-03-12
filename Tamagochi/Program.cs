@@ -52,10 +52,10 @@ namespace Tamagochi
                     string ch = Console.ReadLine();
                     switch (ch)
                     {
-                        case "Y":
+                        case "Y" or "y":
                             monster.Cure();
                             break;
-                        case "N":
+                        case "N" or "n":
                             gameOver = true;
                             break;
                         default:
