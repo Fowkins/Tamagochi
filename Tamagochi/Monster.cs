@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -195,7 +196,8 @@ namespace Tamagochi
         public void Status()
         {
             Console.WriteLine($"Name: {Name}");
-            Console.WriteLine($"Health: {Health}");
+            Console.WriteLine("Health: ");
+            PrintHealth();
             Console.WriteLine($"Hunger: {Hunger}");
             Console.WriteLine($"Fatigue: {Fatigue}");
             Console.WriteLine($"Happiness: {Happiness}");
@@ -216,6 +218,18 @@ namespace Tamagochi
             {
                 Health--;
             }
+        }
+
+        /// <summary>
+        /// Метод, выводящий значение здоровья питомца в виде кол-ва ♥
+        /// </summary>
+        public void PrintHealth()
+        {
+            for (int i = 0; i < Health; i++)
+            {
+                Console.Write("♥ ");
+            }
+            Console.WriteLine();
         }
 
     }

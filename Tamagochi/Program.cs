@@ -6,7 +6,14 @@ namespace Tamagochi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Tamagotchi!");
+            Console.WriteLine("############################");
+            Console.WriteLine("#                          #");
+            Console.WriteLine("#  Welcome to Tamagotchi!  #");
+            Console.WriteLine("#                          #");
+            Console.WriteLine("############################");
+            Console.WriteLine("You've just adopted a virtual pet!");
+            Console.WriteLine("Take care of your pet by feeding, playing, and letting it sleep.");
+            Console.WriteLine("But be careful, neglecting your pet's needs can lead to sickness!");
             Console.Write("Enter pet name: ");
             string petName = Console.ReadLine();
             Monster monster = new Monster(petName);
