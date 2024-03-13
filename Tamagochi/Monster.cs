@@ -16,6 +16,7 @@ namespace Tamagochi
         private int health;
         private int hunger;
         private int fatigue;
+        private int happiness;
 
         /// <summary>
         /// Возвращает и задает имя питомца
@@ -69,6 +70,10 @@ namespace Tamagochi
                 {
                     hunger = 10;
                 }
+                else if (value < 0)
+                {
+                    hunger = 0;
+                }
                 else
                 {
                     hunger = value;
@@ -91,9 +96,39 @@ namespace Tamagochi
                 {
                     fatigue = 10;
                 }
+                else if (value < 0)
+                {
+                    fatigue = 0;
+                }
                 else
                 {
                     fatigue = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает уровень счастья питомца
+        /// </summary>
+        public int Happiness
+        {
+            get
+            {
+                return happiness;
+            }
+            set
+            {
+                if( value > 10)
+                {
+                    happiness = 10;
+                }
+                else if (value < 0)
+                {
+                    happiness = 0;
+                }
+                else
+                {
+                    happiness = value;
                 }
             }
         }
@@ -108,6 +143,7 @@ namespace Tamagochi
             Health = 10;
             Hunger = 0;
             Fatigue = 0;
+            Happiness = 10;
         }
 
         /// <summary>
@@ -118,10 +154,12 @@ namespace Tamagochi
             if (Hunger > 0)
             {
                 Hunger--;
+                Happiness++;
             }
             else
             {
                 Health--;
+                Happiness--;
             }
         }
 
@@ -135,6 +173,7 @@ namespace Tamagochi
             {
                 Health--;
                 Hunger++;
+                Happiness++;
             }
 
         }
@@ -147,6 +186,7 @@ namespace Tamagochi
             Fatigue = 0;
             Health++;
             Hunger++;
+            Happiness = Happiness + 2;
         }
 
         /// <summary>
@@ -158,6 +198,7 @@ namespace Tamagochi
             Console.WriteLine($"Health: {Health}");
             Console.WriteLine($"Hunger: {Hunger}");
             Console.WriteLine($"Fatigue: {Fatigue}");
+            Console.WriteLine($"Happiness: {Happiness}");
             Console.WriteLine();
 
         }
