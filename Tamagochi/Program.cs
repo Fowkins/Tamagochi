@@ -28,7 +28,6 @@ namespace Tamagochi
                 Console.WriteLine("2. Play");
                 Console.WriteLine("3. Sleep");
                 Console.WriteLine("4. Quit");
-
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
                 Console.Write("\n");
