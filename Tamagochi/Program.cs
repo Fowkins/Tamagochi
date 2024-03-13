@@ -22,40 +22,49 @@ namespace Tamagochi
 
             while (!gameOver)
             {
+                Console.Clear();
                 monster.Status();
-                Console.WriteLine("Choose an action:");
-                Console.WriteLine("1. Feed");
-                Console.WriteLine("2. Play");
-                Console.WriteLine("3. Sleep");
-                Console.WriteLine("4. Quit");
-                Console.Write("Enter your choice: ");
-                string choice = Console.ReadLine();
-                Console.Write("\n");
-                bool fl = false;
+                bool validChoice = false;
 
-                switch (choice)
+                while (!validChoice)
                 {
-                    case "1":
-                        monster.Feed();
-                        break;
-                    case "2":
-                        monster.Play();
-                        break;
-                    case "3":
-                        monster.Sleep();
-                        break;
-                    case "4":
-                        gameOver = true;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice.");
-                        Console.Write("\n");
-                        break;
+                    Console.WriteLine("Choose an action:");
+                    Console.WriteLine("1. Feed");
+                    Console.WriteLine("2. Play");
+                    Console.WriteLine("3. Sleep");
+                    Console.WriteLine("4. Quit");
+                    Console.Write("Enter your choice: ");
+                    string choice = Console.ReadLine();
+                    Console.Write("\n");
+                    switch (choice)
+                    {
+                        case "1":
+                            monster.Feed();
+                            validChoice = true;
+                            break;
+                        case "2":
+                            monster.Play();
+                            validChoice = true;
+                            break;
+                        case "3":
+                            monster.Sleep();
+                            validChoice = true;
+                            break;
+                        case "4":
+                            gameOver = true; 
+                            validChoice = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            Console.Write("\n");
+                            break;
+                    }
                 }
 
                 if(monster.Health <= 0)
                 {
-                    while (!fl)
+                    bool validResponse = false;
+                    while (!validResponse)
                     {
                         Console.WriteLine("Your pet is sick!.");
                         Console.Write("Do you want to cure him?(Y/N): ");
@@ -65,11 +74,11 @@ namespace Tamagochi
                         {
                             case "Y" or "y":
                                 monster.Cure();
-                                fl = true;
+                                validResponse = true;
                                 break;
                             case "N" or "n":
                                 gameOver = true;
-                                fl = true;
+                                validResponse = true;
                                 break;
                             default:
                                 Console.WriteLine("Invalid choice.");
