@@ -50,6 +50,7 @@ namespace Tamagochi
                         break;
                     default:
                         Console.WriteLine("Invalid choice.");
+                        Console.Write("\n");
                         break;
                 }
 
@@ -59,8 +60,8 @@ namespace Tamagochi
                     {
                         Console.WriteLine("Your pet is sick!.");
                         Console.Write("Do you want to cure him?(Y/N): ");
+                        string ch = Console.ReadLine();
                         Console.Write("\n");
-                        string ch = Console.ReadLine();                      
                         switch (ch)
                         {
                             case "Y" or "y":
@@ -73,11 +74,16 @@ namespace Tamagochi
                                 break;
                             default:
                                 Console.WriteLine("Invalid choice.");
+                                Console.Write("\n");
                                 break;
                         }
-
                     }
  
+                }
+
+                if (gameOver)
+                {
+                    Console.WriteLine("Game over!");
                 }
             }
         }
