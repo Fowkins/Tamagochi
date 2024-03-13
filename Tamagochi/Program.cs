@@ -19,7 +19,6 @@ namespace Tamagochi
             string petName = Console.ReadLine();
             Monster monster = new Monster(petName);
             bool gameOver = false;
-            bool fl = false;
 
             while (!gameOver)
             {
@@ -29,12 +28,12 @@ namespace Tamagochi
                 Console.WriteLine("2. Play");
                 Console.WriteLine("3. Sleep");
                 Console.WriteLine("4. Quit");
-
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
                 Console.Write("\n");
+                bool fl = false;
 
-                switch(choice)
+                switch (choice)
                 {
                     case "1":
                         monster.Feed();
@@ -50,6 +49,7 @@ namespace Tamagochi
                         break;
                     default:
                         Console.WriteLine("Invalid choice.");
+                        Console.Write("\n");
                         break;
                 }
 
@@ -59,8 +59,8 @@ namespace Tamagochi
                     {
                         Console.WriteLine("Your pet is sick!.");
                         Console.Write("Do you want to cure him?(Y/N): ");
+                        string ch = Console.ReadLine();
                         Console.Write("\n");
-                        string ch = Console.ReadLine();                      
                         switch (ch)
                         {
                             case "Y" or "y":
@@ -73,11 +73,16 @@ namespace Tamagochi
                                 break;
                             default:
                                 Console.WriteLine("Invalid choice.");
+                                Console.Write("\n");
                                 break;
                         }
-
                     }
  
+                }
+
+                if (gameOver)
+                {
+                    Console.WriteLine("Game over!");
                 }
             }
         }

@@ -170,11 +170,11 @@ namespace Tamagochi
         public void Play()
         {
             Fatigue++;
+            Happiness++;
             if (Fatigue == 10)
             {
                 Health--;
-                Hunger++;
-                Happiness++;
+                Hunger++; 
             }
 
         }
@@ -195,6 +195,8 @@ namespace Tamagochi
         /// </summary>
         public void Status()
         {
+            UpdateHealth();
+            Console.Clear();
             Console.WriteLine($"Name: {Name}");
             Console.WriteLine("Health: ");
             PrintHealth();
@@ -230,6 +232,18 @@ namespace Tamagochi
                 Console.Write("♥ ");
             }
             Console.WriteLine();
+        }
+        
+        /// <summary>
+        /// Метод, отвечающий за обновление здоровья при больших показателей голода или усталости
+        /// </summary>
+        public void UpdateHealth()
+        {
+            if (Hunger >= 8 || Fatigue>= 8)
+            {
+                Health--;
+                Happiness--;
+            }
         }
 
     }
