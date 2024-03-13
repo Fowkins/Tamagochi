@@ -12,13 +12,14 @@ namespace Tamagochi
             Console.WriteLine("#                          #");
             Console.WriteLine("############################");
             Console.WriteLine("You've just adopted a virtual pet!");
-            Console.Write("     ########\r\n ####        ##\r\n#       ##    ##  \r\n#              ##\r\n#              ##\r\n##########     ##\r\n    ##           ##\r\n    ##             ####\r\n      ########         ##\r\n             #           ##\r\n             #             ##\r\n              ##            ##\r\n           ##      #  ##      ##\r\n           ##   ####  ##        ####\r\n           #####    ##        #     ##\r\n                    ##        #       ##\r\n                    ##        #####   ##\r\n                  ############     #####     \r\n                                  \n");
+            Console.Write("\n     ########\n ####        ##\n#       ##    ##  \n#              ##\n#              ##\n##########     ##\n    ##           ##\n    ##             ####\n      ########         ##\n             #           ##\n             #             ##\n              ##            ##\n           ##      #  ##      ##\n           ##   ####  ##        ####\n           #####    ##        #     ##\n                    ##        #       ##\n                    ##        #####   ##\n                  ############     #####     \n                                  \n");
             Console.WriteLine("Take care of your pet by feeding, playing, and letting it sleep.");
             Console.WriteLine("But be careful, neglecting your pet's needs can lead to sickness!");
             Console.Write("Enter pet name: ");
             string petName = Console.ReadLine();
             Monster monster = new Monster(petName);
             bool gameOver = false;
+            bool fl = false;
 
             while (!gameOver)
             {
@@ -54,22 +55,29 @@ namespace Tamagochi
 
                 if(monster.Health <= 0)
                 {
-                    Console.WriteLine("Your pet is sick!.");
-                    Console.Write("Do you want to cure him?(Y/N): ");
-                    Console.Write("\n");
-                    string ch = Console.ReadLine();
-                    switch (ch)
+                    while (!fl)
                     {
-                        case "Y" or "y":
-                            monster.Cure();
-                            break;
-                        case "N" or "n":
-                            gameOver = true;
-                            break;
-                        default:
-                            Console.WriteLine("Invalid choice.");
-                            break;
+                        Console.WriteLine("Your pet is sick!.");
+                        Console.Write("Do you want to cure him?(Y/N): ");
+                        Console.Write("\n");
+                        string ch = Console.ReadLine();                      
+                        switch (ch)
+                        {
+                            case "Y" or "y":
+                                monster.Cure();
+                                fl = true;
+                                break;
+                            case "N" or "n":
+                                gameOver = true;
+                                fl = true;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid choice.");
+                                break;
+                        }
+
                     }
+ 
                 }
             }
         }
