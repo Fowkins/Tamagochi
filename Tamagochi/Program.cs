@@ -19,7 +19,6 @@ namespace Tamagochi
             string petName = Console.ReadLine();
             Monster monster = new Monster(petName);
             bool gameOver = false;
-            bool fl = false;
 
             while (!gameOver)
             {
@@ -33,8 +32,9 @@ namespace Tamagochi
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
                 Console.Write("\n");
+                bool fl = false;
 
-                switch(choice)
+                switch (choice)
                 {
                     case "1":
                         monster.Feed();
