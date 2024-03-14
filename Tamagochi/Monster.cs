@@ -196,7 +196,6 @@ namespace Tamagochi
         public void Status()
         {
             UpdateHealth();
-            Console.Clear();
             Console.WriteLine($"Name: {Name}");
             Console.WriteLine("Health: ");
             PrintHealth();
